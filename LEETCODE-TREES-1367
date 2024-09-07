@@ -1,0 +1,15 @@
+class Solution {
+
+    public boolean CBT(ListNode head,TreeNode root)
+    {
+        if(head==null) return true;
+        if(root==null) return false;
+        return head.val==root.val&&(CBT(head.next,root.left)||CBT(head.next,root.right));
+      
+
+    }
+    public boolean isSubPath(ListNode head, TreeNode root) {
+        if(root==null) return false;
+      return CBT(head,root)||isSubPath(head,root.left)||isSubPath(head,root.right);
+    }
+}
